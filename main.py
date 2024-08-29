@@ -6,10 +6,10 @@ from urllib.parse import urlparse, parse_qs
 
 session = requests.session()
 # 配置用户名（一般是邮箱）
-username = os.environ.get('username')
+username = os.environ.get('USERNAME')
 # username = "1689324109"
 # 配置用户名对应的密码 和上面的email对应上
-password = os.environ.get('password')
+password = os.environ.get('PASSWORD')
 # password = "zcj.080818"
 # AnPlus
 AnPlus = os.environ.get('AnPlus')
