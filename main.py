@@ -6,14 +6,14 @@ from urllib.parse import urlparse, parse_qs
 
 session = requests.session()
 # 配置用户名（一般是邮箱）
-username = os.environ.get('USERNAME')
+username = os.environ.get('username')
 # username = "1689324109"
 # 配置用户名对应的密码 和上面的email对应上
-password = os.environ.get('PASSWORD')
+password = os.environ.get('password')
 # password = "zcj.080818"
 # AnPlus
-# AnPlus = os.environ.get('AnPlus')
-AnPlus = 'J9C9I7V7RI4YEPHHRDHB2WL137ZDAY'
+AnPlus = os.environ.get('AnPlus')
+# AnPlus = 'J9C9I7V7RI4YEPHHRDHB2WL137ZDAY'
 def push(content):
     if AnPlus != '1' :
         payload = {
