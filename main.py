@@ -16,7 +16,7 @@ AnPlus = os.environ.get('AnPlus')
 def push(content):
     if AnPlus != '1' :
         payload = {
-            "title": u"ikuuu签到:"+content,
+            "title": u"xhuzim签到:"+content,
             "content": content,
             "channel": "97024"
         }
