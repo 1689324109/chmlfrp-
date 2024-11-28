@@ -4,6 +4,18 @@ import base64
 import requests, json, re, os
 from bs4 import BeautifulSoup
 
+
+session = requests.session()
+# 配置用户名（一般是邮箱）
+username = os.environ.get('USERNAME')
+
+# 配置用户名对应的密码 和上面的email对应上
+password = os.environ.get('PASSWORD')
+
+# AnPlus
+AnPlus = os.environ.get('AnPlus')
+
+
 def x(a, b):
     b = b + "PTNo2n3Ev5"
     output = []
