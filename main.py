@@ -93,7 +93,9 @@ data = {
     "password": password
 }
 res = requests.get(url)
+print(res.text)
 guard =  res.cookies.get_dict().get("guard")
+guard = null
 # 如果没有 guard，直接停止后续操作
 if not guard:
     print("No 'guard' cookie found, stopping execution.")
