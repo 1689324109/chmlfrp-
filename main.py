@@ -92,8 +92,6 @@ data = {
     "username": username,
     "password": password
 }
-
-
 res = requests.get(url)
 guard =  res.cookies.get_dict().get("guard")
 # 如果没有 guard，直接停止后续操作
@@ -118,9 +116,9 @@ else:
 
 # 发送 POST 请求
 response = session.post(loginUrl, headers=headers, data=data)
-# print(response.text)
+print(response.text)
 info = session.get(userInfoUrl, headers=headers)
-print(info.text)
+# print(info.text)
 token = getCsrf(info.text)
 checkPag = session.get(checkPageUrl, headers=headers)
 print(checkPag)
