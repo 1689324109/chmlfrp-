@@ -83,7 +83,6 @@ headers = {
         'referer':'https://xhfrp.xhuzim.top/',
         'accept-encoding': 'gzip, deflate, br, zstd',
         'accept-language': 'zh-CN,zh;q=0.9',
-        'cookie': 'guard=c367b661Ce4n7;guardret=UAM=',
         'priority': 'u=0, i'
     }
 
