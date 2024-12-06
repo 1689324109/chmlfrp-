@@ -94,37 +94,37 @@ data = {
     "password": "zcj.080818"
 }
 
+
 res = requests.get(url)
 guard =  res.cookies.get_dict().get("guard")
-guardret = set_ret(f'{guard}')
-headers['cookie'] = f'guard={guard};guardret={guardret}'
-# print(headers)
-ok_response = requests.get(url, headers=headers)
+# 如果没有 guard，直接停止后续操作
+if not guard:
+    print("No 'guard' cookie found, stopping execution.")
+else:
+    # 如果有 guard，则继续执行后续操作
+    guardret = set_ret(f'{guard}')
+    headers['cookie'] = f'guard={guard};guardret={guardret}'
 
-ok_set_cookie = ok_response.cookies.get_dict()
-guard = ok_set_cookie.get("guard")
+    # 发起第二个请求
+    ok_response = requests.get(url, headers=headers)
 
-headers['cookie'] = f'PHPSESSID={ok_set_cookie.get("PHPSESSID")};guardok={ok_set_cookie.get("guardok")}'
+    # 获取第二个请求的 cookies
+    ok_set_cookie = ok_response.cookies.get_dict()
+    guard = ok_set_cookie.get("guard")
+
+    # 更新 headers 中的 cookie
+    headers['cookie'] = f'PHPSESSID={ok_set_cookie.get("PHPSESSID")};guardok={ok_set_cookie.get("guardok")}'
+
 
 
 # 发送 POST 请求
 response = session.post(loginUrl, headers=headers, data=data)
-print(response)
+print(response.text)
 info = session.get(userInfoUrl, headers=headers)
+# print(info.text)
 token = getCsrf(info.text)
 checkPag = session.get(checkPageUrl, headers=headers)
 print(checkPag)
 check = session.get(checkUrl + token, headers=headers)
 print(check.text)
 push(check.text)
-#     print(response['msg'])
-#     # 获取账号名称
-#     info_html = session.get(url=info_url,headers=header).text
-# #     info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
-# #     print(info)
-#     # 进行签到
-#     result = json.loads(session.post(url=check_url,headers=header).text)
-#     print(result['msg'])
-#     content = result['msg']
-#     # 进行推送
-#     push(content)
