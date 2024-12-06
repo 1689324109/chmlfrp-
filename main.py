@@ -97,7 +97,7 @@ print(res.text)
 #guard =  res.cookies.get_dict().get("guard")
 # 如果没有 guard，直接停止后续操作
 #if not guard:
-if False:
+if True:
     print("No 'guard' cookie found, stopping execution.")
 else:
     # 如果有 guard，则继续执行后续操作
