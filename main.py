@@ -94,6 +94,7 @@ data = {
 }
 
 res = requests.get(url)
+print(res.text)
 guard =  res.cookies.get_dict().get("guard") 
 # 如果没有 guard，直接停止后续操作
 if True:
