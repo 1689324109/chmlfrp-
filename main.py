@@ -89,8 +89,8 @@ headers = {
 # 定义请求的 body
 data = {
     "g-recaptcha-response": "",
-    "username": "1689324109",
-    "password": "zcj.080818"
+    "username": username,
+    "password": password
 }
 
 
@@ -118,9 +118,9 @@ else:
 
 # 发送 POST 请求
 response = session.post(loginUrl, headers=headers, data=data)
-print(response.text)
+# print(response.text)
 info = session.get(userInfoUrl, headers=headers)
-# print(info.text)
+print(info.text)
 token = getCsrf(info.text)
 checkPag = session.get(checkPageUrl, headers=headers)
 print(checkPag)
