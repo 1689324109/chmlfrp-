@@ -100,8 +100,8 @@ if not guard:
     print("No 'guard' cookie found, stopping execution.")
     res = requests.get(url)
     match = re.search(r'document.cookie = "(.*?);', res.text)
-    validator = match.group(1)
-    if not not validator:
+    if not not match:
+        validator = match.group(1)
         headers['cookie'] = validator
         res = requests.get(url,headers=headers)
         PHPSESSID =  res.cookies.get_dict().get("PHPSESSID") 
