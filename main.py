@@ -47,7 +47,7 @@ def push(content):
             "Content-Type": "application/x-www-form-urlencoded"
         }
 
-        response = requests.post("https://api.anpush.com/push/"+AnPlus, headers=headers, data=payload)
+        response = requests.post("http://api.anpush.com/push/"+AnPlus, headers=headers, data=payload)
         print('AnPlus消息推送推送成功' if response.status_code == 200 else 'AnPlus消息推送推送失败')
     else:
         print('未使用消息推送推送！')
